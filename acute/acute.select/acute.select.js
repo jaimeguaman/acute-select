@@ -25,7 +25,7 @@ angular.module("acute.select", [])
             "acFocusWhen": "="
         },
         replace: true,
-        templateUrl: defaultSettings.templatePath + "acute.select.htm",
+        templateUrl: defaultSettings.templateUrl,
         link: function(scope, element, attrs) {
             scope.initialise();
         },
@@ -986,7 +986,7 @@ angular.module("acute.select", [])
 .factory('acuteSelectService', function() {
 
     var defaultSettings = {
-        "templatePath": "/acute.select/",
+        "templateUrl": "/acute.select/acute.select.htm",
         "noItemsText": "No items found.",
         "placeholderText": "Please select...",
         "itemHeight": 24,
@@ -1008,11 +1008,6 @@ angular.module("acute.select", [])
 
     return {
         getSettings: function() {
-            // Add trailing "/" to template path if not present
-            var len = defaultSettings.templatePath.length;
-            if (len > 0 && defaultSettings.templatePath.substr(len - 1, 1) !== "/") {
-                defaultSettings.templatePath += "/";
-            }
             return angular.copy(defaultSettings);
         },
 
